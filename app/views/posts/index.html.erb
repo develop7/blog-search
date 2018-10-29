@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+
 <%= form_with(url: "/search", method: "get", local: true) do %>
   <%= label_tag(:search, "Search for:") %>
   <%= text_field_tag(:search) %>
