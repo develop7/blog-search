@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     if params[:search]
       @posts = Post.basic_search(params[:search]) # change this to search after implementing it
     else
-      @posts = Post.where(domain: params[:domain])
+      @posts = Post.includes(:authors).where(domain: params[:domain])
     end
   end
 
