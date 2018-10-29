@@ -7,6 +7,11 @@ class Post < ApplicationRecord
     Post.where('title LIKE ?', "%#{query}%")
   end
 
-  def self.search(query)
+  def self.search(query = '')
+    qs = query.split(' ')
+
+    qs.reduce self do |acc, el|
+      acc.where('title % ?', "%#{el}%")
+    end
   end
 end
