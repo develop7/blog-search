@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 <h2><%= @post.category.title %></h2>
-<h3><%= @post.tags.pluck(:title).join(',') %></h2>
+<h3><%= @post.tags.pluck(:title).join(',') %></h3>
 <%= @post.content %>
 <br/>
 Authored by <%= @post.authors.pluck(:full_name).to_sentence %>
